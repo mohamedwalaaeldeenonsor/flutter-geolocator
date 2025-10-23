@@ -1,24 +1,4 @@
-group 'com.baseflow.geolocator'
-version '1.0'
-
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
-    }
-}
-
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-group 'com.baseflow.geolocator'
+group 'com.baseflow.geolocator_android'
 version '1.0'
 
 buildscript {
@@ -31,70 +11,37 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 apply plugin: 'com.android.library'
 
 android {
-    namespace "com.baseflow.geolocator"
+    namespace "com.baseflow.geolocator_android"
 
     compileSdk 34
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdk 21
+        targetSdk 34
         consumerProguardFiles "consumer-rules.pro"
-    }
-
-    lint {
-        disable 'InvalidPackage'
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    lint {
+        disable 'InvalidPackage'
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 dependencies {
     implementation 'com.google.android.gms:play-services-location:21.2.0'
     implementation 'androidx.core:core:1.12.0'
-
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:5.1.1'
-}
-apply plugin: 'com.android.library'
-
-android {
-    namespace "com.baseflow.geolocator"
-
-    compileSdk 34
-    compileSdkVersion 34
-
-    defaultConfig {
-        minSdk 21
-        targetSdk 34
-    }
-
-    lint {
-        disable 'InvalidPackage'
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-}
-
-
-dependencies {
-    implementation 'com.google.android.gms:play-services-location:21.2.0'
-    implementation 'androidx.core:core:1.16.0'
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:5.1.1'
